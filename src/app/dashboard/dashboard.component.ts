@@ -18,9 +18,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroes.sort((heroe, otroheroe) => (otroheroe.puntos > heroe.puntos ? -1 : 1));
-    heroe2 => this.heroes;
-    this.heroService.getHeroes().subscribe(this.heroe2 => this.heroes = heroe2.slice(0, 4));
+    this.heroService.getHeroes().subscribe(heroe2 => this.heroes = heroe2.slice(0, 4));
 
   }
 }
