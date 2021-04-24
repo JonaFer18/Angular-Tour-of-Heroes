@@ -1,17 +1,11 @@
-//Install express server
+'use strict';
+/*jshint esversion: 6 */
 const express = require('express');
-const path = require('path');
-
 const app = express();
-
-// Serve only the static files form the dist directory
-app.use(express.static('./dist/Angular-Tour-of-Heroes'));
-
-app.get('/*', function(req,res) {
-  
-res.sendFile(path.join(__dirname,'/dist/Angular-Tour-of-Heroes/src/index.html'));
+app.use(express.static(__dirname + '/dist'));
+app.listen(process.env.PORT || 8080, function(){
+  console.log('Server started at http://localhost:8080/');
 });
-
-
-// Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080);
+app.get('/', function(req, res) {
+  res.sendFile(require('path').join(__dirname + '/dist/index.html'))
+});
