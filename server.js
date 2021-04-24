@@ -8,7 +8,8 @@ const app = express();
 app.use(express.static('./dist/Angular-Tour-of-Heroes'));
 
 app.get('/*', function(req,res) {
-res.sendFile(path.join(__dirname,'/dist/Angular-Tour-of-Heroes/index.html'));
+  
+res.sendFile(path.join(__dirname,'/dist/Angular-Tour-of-Heroes/src/index.html'));
 });
 
 
